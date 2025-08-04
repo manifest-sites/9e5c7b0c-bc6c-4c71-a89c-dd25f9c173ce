@@ -92,7 +92,7 @@ function TodoApp() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-200 via-orange-200 to-pink-200 p-4">
       <div className="max-w-2xl mx-auto">
-        <Card className="shadow-lg border-0 rounded-2xl">
+        <Card className="backdrop-blur-lg bg-white/20 border border-white/30 shadow-2xl rounded-2xl" style={{ backdropFilter: 'blur(16px)' }}>
           <div className="text-center mb-8">
             <Title level={1} className="!text-4xl !font-bold !text-gray-800 !mb-2">
               Todo App
@@ -130,10 +130,10 @@ function TodoApp() {
             locale={{ emptyText: 'No todos yet. Add one above!' }}
             renderItem={(todo) => (
               <List.Item
-                className={`rounded-lg mb-3 p-4 border transition-all duration-200 hover:shadow-md ${
+                className={`rounded-lg mb-3 p-4 border transition-all duration-200 hover:shadow-lg backdrop-blur-sm ${
                   todo.completed 
-                    ? 'bg-green-50 border-green-200 opacity-75' 
-                    : 'bg-white border-gray-200 hover:border-blue-300'
+                    ? 'bg-green-100/40 border-green-300/50 opacity-75' 
+                    : 'bg-white/30 border-white/40 hover:border-white/60 hover:bg-white/40'
                 }`}
                 actions={[
                   <Button
@@ -166,7 +166,7 @@ function TodoApp() {
           />
 
           {todos.length > 0 && (
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+            <div className="mt-6 p-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg">
               <div className="flex justify-between items-center text-sm text-gray-600">
                 <span>Progress</span>
                 <span>{Math.round((completedCount / totalCount) * 100)}%</span>
